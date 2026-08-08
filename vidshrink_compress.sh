@@ -26,6 +26,27 @@ fi
 
 mkdir -p "$OUTPUT_DIR"
 
+# Detect whether the environment supports UTF-8 and allow overriding with an env var.
+# If VIDSHRINK_NO_EMOJI is set (non-empty), force ASCII mode.
+if [ -n "${VIDSHRINK_NO_EMOJI-}" ]; then
+  USE_EMOJI=0
+else
+  case "${LC_ALL:-${LC_CTYPE:-${LANG:-}}}" in
+    *UTF-8*|*UTF8*) USE_EMOJI=1 ;;
+    *) USE_EMOJI=0 ;;
+  esac
+fi
+
+if [ "${USE_EMOJI:-0}" -eq 1 ]; then
+  ICON_COMPRESS="▶"
+  ICON_DONE="✅"
+  ICON_ERROR="❌"
+else
+  ICON_COMPRESS="> "
+  ICON_DONE="Done:"
+  ICON_ERROR="Error:"
+fi
+
 # Use process substitution so the while loop runs in the current shell
 while IFS= read -r -d '' file; do
   TOTAL_SOURCE=$((TOTAL_SOURCE + 1))
@@ -34,7 +55,7 @@ while IFS= read -r -d '' file; do
   out="$OUTPUT_DIR/${rel%.*}.mp4"
   mkdir -p "$(dirname "$out")"
 
-  echo "▶ Compressing: $rel..."
+  echo "${ICON_COMPRESS} Compressing: $rel..."
 
   if ffmpeg -nostdin -hide_banner -loglevel error -stats \
       -i "$file" -map_metadata 0 \
@@ -43,10 +64,10 @@ while IFS= read -r -d '' file; do
 
     touch -r "$file" "$out"
     TOTAL_DONE=$((TOTAL_DONE + 1))
-    echo "✅ Done: $rel"
+    echo "${ICON_DONE} $rel"
   else
     TOTAL_ERRORS=$((TOTAL_ERRORS + 1))
-    echo "❌ Error: $rel" >&2
+    echo "${ICON_ERROR} $rel" >&2
   fi
 
   echo

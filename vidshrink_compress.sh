@@ -34,17 +34,22 @@ while IFS= read -r -d '' file; do
   out="$OUTPUT_DIR/${rel%.*}.mp4"
   mkdir -p "$(dirname "$out")"
 
-  if ffmpeg -nostdin -i "$file" -map_metadata 0 \
+  echo "▶ Compressing: $rel..."
+
+  if ffmpeg -nostdin -hide_banner -loglevel error -stats \
+      -i "$file" -map_metadata 0 \
       -c:v libx265 -crf 23 -preset medium -tag:v hvc1 \
       -c:a aac -b:a 128k "$out"; then
 
     touch -r "$file" "$out"
     TOTAL_DONE=$((TOTAL_DONE + 1))
-    echo "Done: $rel"
+    echo "✅ Done: $rel"
   else
     TOTAL_ERRORS=$((TOTAL_ERRORS + 1))
-    echo "Error: $rel" >&2
+    echo "❌ Error: $rel" >&2
   fi
+
+  echo
 done < <(find "$INPUT_DIR" -type f \
           \( -iname "*.mp4" -o -iname "*.mov" -o -iname "*.mkv" \) \
           ! -name "._*" -print0)

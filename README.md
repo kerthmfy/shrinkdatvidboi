@@ -36,7 +36,7 @@ chmod +x vidshrink_compress.sh
 Or just copy `vidshrink_compress.sh` into any folder on your system and make it executable:
 
 ```bash
-chmod +x compress_videos.sh
+chmod +x vidshrink_compress.sh
 ```
 
 ## Usage

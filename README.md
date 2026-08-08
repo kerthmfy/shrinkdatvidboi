@@ -30,10 +30,10 @@ brew install ffmpeg
 ```bash
 git clone https://github.com/kerthmfy/vidshrink.git
 cd vidshrink
-chmod +x compress_videos.sh
+chmod +x vidshrink_compress.sh
 ```
 
-Or just copy `compress_videos.sh` into any folder on your system and make it executable:
+Or just copy `vidshrink_compress.sh` into any folder on your system and make it executable:
 
 ```bash
 chmod +x compress_videos.sh
@@ -119,6 +119,6 @@ vidshrink works well as a pre-processing step before importing videos into Immic
 
 ## Issues
 
-This is really a personal project that i just vibe-prompted, it works well with me. You can configure it yourself if there's problems when using it. (I've used it in larger files and definitely helped me save some storage before importing it to immich)
+This is really a personal project that i just vibe-prompted *if that's a real term now, it works well with me. You can configure it yourself if there's problems when using it. (I've used it in larger files and definitely helped me save some storage before importing it to immich)
 
 ---

@@ -1,6 +1,6 @@
-# vidshrink 📹
+# shrinkdatvidboi 📹
 
-vidshrink is a Bash + FFmpeg tool for batch-compressing video libraries with HEVC (x265) while preserving metadata and timestamps. It recursively scans an input folder, re‑encodes `.mp4`, `.mov`, and `.mkv` with CRF‑based x265, mirrors the folder structure to an output directory, and keeps file dates intact for apps like Immich.
+shrinkdatvidboi is a Bash + FFmpeg tool for batch-compressing video libraries with HEVC (x265) while preserving metadata and timestamps. It recursively scans an input folder, re‑encodes `.mp4`, `.mov`, and `.mkv` with CRF‑based x265, mirrors the folder structure to an output directory, and keeps file dates intact for apps like Immich.
 
 ## Features
 
@@ -30,13 +30,13 @@ brew install ffmpeg
 ```bash
 git clone https://github.com/kerthmfy/vidshrink.git
 cd vidshrink
-chmod +x vidshrink_compress.sh
+chmod +x shrinkdatvidboi.sh
 ```
 
-Or just copy `vidshrink_compress.sh` into any folder on your system and make it executable:
+Or just copy `shrinkdatvidboi.sh` into any folder on your system and make it executable:
 
 ```bash
-chmod +x vidshrink_compress.sh
+chmod +x shrinkdatvidboi.sh
 ```
 
 ## Usage
@@ -102,7 +102,7 @@ Always quote paths that contain spaces or special characters.
 
 ## Immich use case
 
-vidshrink works well as a pre-processing step before importing videos into Immich (which the reason i made this actually lol)
+shrinkdatvidboi works well as a pre-processing step before importing videos into Immich (which the reason i made this actually lol)
 
 - Run vidshrink on your camera/phone recordings.
 - Import the `output` directory into Immich or point an External Library at it.

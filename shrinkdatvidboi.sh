@@ -1,12 +1,12 @@
 #!/bin/bash
-# vidshrink - batch video compressor (HEVC/x265 + CRF)
+# shrinkdatvidboi - batch video compressor (HEVC/x265 + CRF)
 # Author: Kerth Yadao
 # GitHub: https://github.com/kerthmfy/vidshrink
 # License: MIT
 set -e
 
 echo "========================================="
-echo "  vidshrink - batch HEVC compressor"
+echo "  shrinkdatvidboi - batch HEVC compressor"
 echo "  made and vibe-prompted by: Kerth Yadao"
 echo "========================================="
 echo

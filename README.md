@@ -44,13 +44,13 @@ chmod +x vidshrink_compress.sh
 Basic:
 
 ```bash
-./compress_videos.sh "/path/to/input" "/path/to/output"
+./vidshrink_compress.sh "/path/to/input" "/path/to/output"
 ```
 
 Example (external drive on macOS):
 
 ```bash
-./compress_videos.sh "/Volumes/EXTERNAL/VIDS : PICS/olfu" "/Volumes/EXTERNAL/VIDS : PICS/output"
+./vidshrink_compress.sh "/Volumes/EXTERNAL/VIDS : PICS/" "/Volumes/EXTERNAL/VIDS : PICS/output"
 ```
 
 Always quote paths that contain spaces or special characters.

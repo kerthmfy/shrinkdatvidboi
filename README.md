@@ -29,7 +29,7 @@ brew install ffmpeg
 
 ```bash
 git clone https://github.com/kerthmfy/shrinkdatvidboi.git
-cd vidshrink
+cd shrinkdatvidboi
 chmod +x shrinkdatvidboi.sh
 ```
 

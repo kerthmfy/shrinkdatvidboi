@@ -104,7 +104,7 @@ Always quote paths that contain spaces or special characters.
 
 shrinkdatvidboi works well as a pre-processing step before importing videos into Immich (which the reason i made this actually lol)
 
-- Run vidshrink on your camera/phone recordings.
+- Run shrinkdatvidboi on your camera/phone recordings.
 - Import the `output` directory into Immich or point an External Library at it.
 - Optionally reduce Immich’s own transcoding to avoid storing redundant copies.
 
